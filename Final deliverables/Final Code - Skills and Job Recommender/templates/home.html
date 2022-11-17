@@ -1,0 +1,118 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Home - Skills / Jobs Recommender{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+{% endblock %}
+{% block content %}
+
+<!-------------------------------------------------------------------------------------------Nav------------------------------------------------------------------------------------------------------------------>
+ <div id="body">
+   <div id="NAV">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="www.google.com"><h3 id="nav-p">Mr.Perk</h3></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('login')}}"><i class="fa-solid fa-user profile-img fa-lg AC1"><p class="AC1 AC">Login</p></i></a>
+      </ul>
+    </div>
+</nav>
+     </div>
+  <!-------------------------------------------------------------------------------------------Nav------------------------------------------------------------------------------------------------------------------>
+ <section id="title">
+  <center>
+  <div class="container-fluid ">
+<div class="row">
+  <div class = "col-lg-6">
+    <img class = "Title-image" src="{{url_for('static', filename='images/happy.png')}}" alt="happy-mockup">
+  </div>
+    <div class = "col-lg-6">
+    <h1 id ="meet">Find The Jobs According To Your Skills.</h1>
+      <button type="button" class="btn btn-secondary btn btn-primary btn-lg Downloadbtn"><i class="fa-solid fa-magnifying-glass-arrow-right Downloadbtn "></i></i> <a style="color:#fff" class="Downloadbtn" href="{{url_for('login')}}">Find Jobs</a></button>
+      <button type="button" class="btn btn-secondary btn btn-primary btn-lg Downloadbtn"><i class="fa-solid fa-magnifying-glass-arrow-right Downloadbtn "></i></i> <a style="color:#fff;" class="Downloadbtn" href="{{url_for('corporate_login')}}">Post job</a></button>
+  </div>
+</div>
+  </center>
+</section>
+ </div>
+
+<!-- Features -->
+<section id="features">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 featurebox">
+      <i class="icon fa-solid fa-circle-check fa-6x"></i>
+      <h3>Automated Notifications.</h3>
+      <p>Automated emails to tell you when new jobs matching your search criteria are posted will help you do more with your life.</p>
+    </div>
+    <div class="col-lg-4 featurebox">
+      <i class="icon fa-solid fa-bullseye fa-6x"></i>
+      <h3>Recruiters Come to You</h3>
+      <p>You can post your resume on job boards, allowing prospective employers looking for particular talents to find your information and invite you to apply</p>
+    </div>
+    <div class="col-lg-4 featurebox">
+      <i class="icon fa-solid fa-heart fa-6x"></i>
+      <h3>More Job Listings.</h3>
+      <p>By signing up for several job boards, you are going to see more job listings, giving you more opportunities to find the right job.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- Testimonials -->
+
+<section id="testimonials">
+  <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <h2>Recuiters Will Come To You Mr.Perks Will Also Have Automated Chat-Box Option</h2>
+        <img class='testimonials-image' src="{{url_for('static', filename='images/office.png')}}" alt="dog-profile">
+      </div>
+      <div class="carousel-item">
+        <h2 class="testimonial-text">You Are Job Seekar I Think You Arrived At Right Place.</h2>
+        <img class="testimonials-image" src="{{url_for('static', filename='images/jobseek.png')}}" alt="gen-profile">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+</section>
+
+
+<!-- Press -->
+
+<section id="press">
+  <img class="press-img" src="{{url_for('static', filename='images/dango.png')}}" alt="tc-logo">
+  <img class="press-img" src="{{url_for('static', filename='images/IBM.png')}}" alt="tnw-logo">
+  <img class="press-img" src="{{url_for('static', filename='images/TCS.png')}}" alt="biz-insider-logo">
+  <img class="press-img" src="{{url_for('static', filename='images/wipro.png')}}" alt="mashable-logo">
+
+</section>
+
+<footer id="footer">
+  <i class="footer-img fa-brands fa-facebook-f"></i>
+  <i class="footer-img fa-brands fa-instagram"></i>
+  <i class="footer-img fa-brands fa-twitter"></i>
+  <i class="footer-img fa-solid fa-envelope"></i>
+
+  <p>© Copyright 2022 Mr.Perks - Job Recommender</p>
+</footer>
+  <!------------------------------------------------Nav------------------------------------------------------->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e66a43891e.js" crossorigin="anonymous"></script>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Home - Skills / Jobs Recoemmender{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+{% endblock %}
+{% block content %}
+<div id="applyjob">
+<div class="container">
+  <div class="row mx-0 justify-content-center">
+    <div class="col-md-7 col-lg-5 px-lg-2 col-xl-4 px-xl-0 px-xxl-3" id="applyjob-form">
+      <form
+        method="POST"
+        class="w-100 rounded-1 p-4 border bg-white"
+        action="{{url_for('mail')}}"
+        enctype = "multipart/form-data"
+      >
+        <label>Company Name<input name="cnn" type="text" readonly class="form-control-plaintext"  value={{cnn}}></label>
+        <label>Company Email<input name="cne" type="text" readonly class="form-control-plaintext" id="staticEmail" value={{cne}}></label>
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Your name</span>
+          <input
+            required
+            name="name"
+            type="text"
+            class="form-control"
+            placeholder="Enter Your Name"
+          />
+        </label>
+
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Email address</span>
+          <input
+            required
+            name="email"
+            type="email"
+            class="form-control"
+            placeholder="Your email@example.com"
+          />
+        </label>
+
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Years of experience</span>
+          <select required name="experience" class="form-select">
+            <option>Less than a year</option>
+            <option>1 - 2 years</option>
+            <option>2 - 4 years</option>
+            <option>4 - 7 years</option>
+            <option>7 - 10 years</option>
+            <option>10+ years</option>
+          </select>
+        </label>
+
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Tell us more about your Objectives</span>
+          <textarea
+            name="message"
+            class="form-control"
+            rows="3"
+            placeholder="What motivates you?"
+          ></textarea>
+        </label>
+
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Your CV</span>
+          <input required name="file" type="file" class="form-control" />
+        </label>
+          <div>
+            <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Education</label>
+            <div class="row">
+              <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Secondary school</label>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">School Name</label>
+                <input  type="text" name="sschool-name" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Passed Out Year</label>
+                <input  type="text" name="sschool-year" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Percentage</label>
+                <input  type="text" name="sschool-percentage" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+            </div>
+            <div class="row">
+              <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Higher Secondary</label>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">School Name</label>
+                <input  type="text" name="hschool-name" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Passed Out Year</label>
+                <input  type="text" name="hschool-year" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Percentage</label>
+                <input  type="text" name="hschool-percentage" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+            </div>
+        <div class="row">
+              <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Degree</label>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Institution Name</label>
+                <input  type="text" name="d-name" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Passed Out Year</label>
+                <input  type="text" name="d-year" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+              <div class="col-lg-3">
+                <label style="margin:10px 0px 10 0px ;" class="form-label" for="form3Example3">Percentage/CGPA</label>
+                <input  type="text" name="d-cgpa" class="form-control form-control-lg"
+              placeholder="Enter Your company name" />
+              </div>
+            </div>
+            <div>
+            <label class="form-label"  for="form3Example3">Your Skills</label>
+            <input type="text" name="skill-1" id="skill1"  class="form-control form-control-lg"
+              placeholder="skill-1" />
+            <input id="skill2"  type="text" name="skill-2" class="form-control form-control-lg"
+              placeholder="skill-2" />
+            <input type="text" id="skill3" name="skill-3" class="form-control form-control-lg"
+              placeholder="skill-3" />
+          </div>
+          </div>
+        <center>
+        <div class="mb-3">
+          <button type="submit" id="applyjob-submit" class="btn btn-primary px-3 rounded-3 btn-lg">
+            Apply
+          </button>
+        </div>
+        </center>
+      </form>
+        </div>
+    </div>
+  </div>
+</div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e66a43891e.js" crossorigin="anonymous"></script>
+{% endblock %}
