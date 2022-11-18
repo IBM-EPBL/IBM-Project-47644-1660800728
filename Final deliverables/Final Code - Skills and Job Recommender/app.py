@@ -243,7 +243,7 @@ def corporate_login():
         email = request.form.get('email')
         password = request.form.get('password')
         admin_email = 'admin@123'
-        admin_password = 'karur@123'
+        admin_password = 'PNT2022TMID48755'
         if email == admin_email and password==admin_password:
             return render_template('postjob.html')
         else:
